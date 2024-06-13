@@ -83,6 +83,8 @@ class Login extends Component {
         {value => {
           const {theme} = value
 
+          console.log(theme)
+
           return (
             <LoginPageContainer theme={theme}>
               <LoginPageContent theme={theme}>
