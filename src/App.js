@@ -10,6 +10,7 @@ import Sidebar from './components/Sidebar'
 class App extends Component {
   state = {
     theme: 'light',
+    activeOption: 'Home',
   }
 
   changeTheme = () => {
@@ -22,11 +23,22 @@ class App extends Component {
     }
   }
 
+  getActiveOption = value => {
+    this.setState({activeOption: value})
+  }
+
   render() {
-    const {theme} = this.state
+    const {theme, activeOption} = this.state
 
     return (
-      <NxtWatchContext.Provider value={{theme, changeTheme: this.changeTheme}}>
+      <NxtWatchContext.Provider
+        value={{
+          theme,
+          activeOption,
+          changeTheme: this.changeTheme,
+          getActiveOption: this.getActiveOption,
+        }}
+      >
         <Header />
         <Sidebar />
       </NxtWatchContext.Provider>

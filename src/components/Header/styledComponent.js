@@ -17,7 +17,8 @@ export const ThemeContainer = styled.div`
 `
 
 export const HeaderLogo = styled.img`
-  height: 6vh;
+  height: 4vh;
+  margin-left: 25px;
 `
 
 export const ThemeBtn = styled.button`
