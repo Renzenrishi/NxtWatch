@@ -1,14 +1,14 @@
 import styled from 'styled-components'
 
-export const SidebarContainer = styled.div`
-  width: 16vw;
+export const SidebarContainer = styled.nav`
+  width: 17vw;
   font-family: 'Roboto';
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  height: 93vh;
   padding: 10px;
+  height: 100vh;
   background-color: ${props =>
     props.theme === 'light' ? '#ffffff' : '#181818'};
 `

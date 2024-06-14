@@ -11,6 +11,7 @@ import {
   ChannelName,
   ViewsContainer,
   Views,
+  Thumbnail,
 } from './styledComponent'
 
 const HomeVideoItem = props => (
@@ -27,7 +28,7 @@ const HomeVideoItem = props => (
       const getDate = () => formatDistanceToNowStrict(new Date(publishedAt))
       return (
         <VideoItem>
-          <img src={thumbnailUrl} alt={channel} />
+          <Thumbnail src={thumbnailUrl} alt={channel} />
           <VideoItemDescContainer>
             <ProfileImg src={profileImageUrl} alt="profile" />
             <VideoItemDesc theme={theme}>

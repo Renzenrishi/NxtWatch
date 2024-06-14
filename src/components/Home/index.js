@@ -59,8 +59,6 @@ class Home extends Component {
 
       const videosList = data.videos
 
-      console.log(videosList)
-
       const updatedVideosList = videosList.map(each => ({
         id: each.id,
         channel: {
@@ -109,7 +107,9 @@ class Home extends Component {
 
     return (
       <ul className="HomeVideosContainer">
-        <HomeVideoItem details={homeVideosData[0]} />
+        {homeVideosData.map(each => (
+          <HomeVideoItem details={each} key={each.id} />
+        ))}
       </ul>
     )
   }
@@ -173,8 +173,10 @@ class Home extends Component {
                       <IoMdClose />
                     </button>
                   </div>
-                  {this.renderSearchInput()}
-                  {this.renderApiStatus()}
+                  <div className="HomePageContent">
+                    {this.renderSearchInput()}
+                    {this.renderApiStatus()}
+                  </div>
                 </HomeContainer>
               </Content>
             </>

@@ -1,12 +1,13 @@
 import styled from 'styled-components'
 
-export const NavContainer = styled.div`
+export const NavContainer = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px;
   background-color: ${props =>
     props.theme === 'light' ? '#ffffff' : '#181818'};
+  height: 10vh;
 `
 
 export const ThemeContainer = styled.div`

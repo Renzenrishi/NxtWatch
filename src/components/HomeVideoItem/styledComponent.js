@@ -3,8 +3,11 @@ import styled from 'styled-components'
 export const VideoItem = styled.li`
   width: 280px;
   font-family: 'Roboto';
+  margin-bottom: 20px;
 `
-
+export const Thumbnail = styled.img`
+  width: 280px;
+`
 export const VideoItemDescContainer = styled.div`
   margin-top: 10px;
   display: flex;
