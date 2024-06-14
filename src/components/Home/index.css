@@ -37,3 +37,8 @@
   border-width: 0px;
   cursor: pointer;
 }
+
+.HomeVideosContainer {
+  list-style-type: none;
+  padding: 0px;
+}
