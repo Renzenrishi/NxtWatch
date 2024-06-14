@@ -1,32 +1,48 @@
-import './index.css'
+import {formatDistanceToNowStrict} from 'date-fns'
 
-import {formatDistanceToNow} from 'date-fns'
+import NxtWatchContext from '../../context/NxtwatchContext'
 
-const HomeVideoItem = props => {
-  const {details} = props
+import {
+  VideoItem,
+  VideoItemDescContainer,
+  ProfileImg,
+  VideoItemDesc,
+  VideoTitle,
+  ChannelName,
+  ViewsContainer,
+  Views,
+} from './styledComponent'
 
-  const {id, channel, publishedAt, thumbnailUrl, title, viewCount} = details
+const HomeVideoItem = props => (
+  <NxtWatchContext.Consumer>
+    {value => {
+      const {theme} = value
 
-  const {name, profileImageUrl} = channel
+      const {details} = props
 
-  const getDate = () => formatDistanceToNow(new Date(publishedAt))
+      const {id, channel, publishedAt, thumbnailUrl, title, viewCount} = details
 
-  return (
-    <li className="VideoItem">
-      <img src={thumbnailUrl} alt={channel} />
-      <div className="VideoItemDescContainer">
-        <img src={profileImageUrl} alt="profile" />
-        <div className="VideoItemDesc">
-          <p>{title}</p>
-          <p>{name}</p>
-          <div className="ViewsContainer">
-            <p>{viewCount}</p>
-            <p>{getDate(publishedAt)}</p>
-          </div>
-        </div>
-      </div>
-    </li>
-  )
-}
+      const {name, profileImageUrl} = channel
+
+      const getDate = () => formatDistanceToNowStrict(new Date(publishedAt))
+      return (
+        <VideoItem>
+          <img src={thumbnailUrl} alt={channel} />
+          <VideoItemDescContainer>
+            <ProfileImg src={profileImageUrl} alt="profile" />
+            <VideoItemDesc theme={theme}>
+              <VideoTitle>{title}</VideoTitle>
+              <ChannelName>{name}</ChannelName>
+              <ViewsContainer>
+                <Views>{viewCount} views</Views>
+                <li>{getDate()} ago</li>
+              </ViewsContainer>
+            </VideoItemDesc>
+          </VideoItemDescContainer>
+        </VideoItem>
+      )
+    }}
+  </NxtWatchContext.Consumer>
+)
 
 export default HomeVideoItem
