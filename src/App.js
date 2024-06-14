@@ -7,6 +7,8 @@ import Login from './components/Login'
 
 import Home from './components/Home'
 
+import ProtectedRoute from './components/ProtectedRoute'
+
 import NxtWatchContext from './context/NxtwatchContext'
 
 import NotFound from './components/NotFound'
@@ -45,7 +47,7 @@ class App extends Component {
       >
         <Switch>
           <Route exact path="/login" component={Login} />
-          <Route exact path="/" component={Home} />
+          <ProtectedRoute exact path="/" component={Home} />
           <Route exact path="/not-found" component={NotFound} />
           <Redirect to="/not-found" />
         </Switch>
