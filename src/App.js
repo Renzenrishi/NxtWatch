@@ -1,11 +1,15 @@
 import './App.css'
 import {Component} from 'react'
+
+import {Switch, Route, Redirect} from 'react-router-dom'
+
 import Login from './components/Login'
+
+import Home from './components/Home'
 
 import NxtWatchContext from './context/NxtwatchContext'
 
-import Header from './components/Header'
-import Sidebar from './components/Sidebar'
+import NotFound from './components/NotFound'
 
 class App extends Component {
   state = {
@@ -39,8 +43,12 @@ class App extends Component {
           getActiveOption: this.getActiveOption,
         }}
       >
-        <Header />
-        <Sidebar />
+        <Switch>
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/not-found" component={NotFound} />
+          <Redirect to="/not-found" />
+        </Switch>
       </NxtWatchContext.Provider>
     )
   }

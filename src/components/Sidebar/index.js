@@ -17,6 +17,7 @@ import {
   LogoContainer,
   SocialMediaLogo,
   OptionText,
+  OptionList,
 } from './styledComponent'
 
 const Sidebar = () => (
@@ -27,42 +28,56 @@ const Sidebar = () => (
       return (
         <SidebarContainer theme={theme}>
           <OptionsContainer>
-            <Option
-              type="button"
-              theme={theme}
-              isActive={activeOption === 'Home'}
-              onClick={() => getActiveOption('Home')}
-            >
-              <AiFillHome />
-              <OptionText>Home</OptionText>
-            </Option>
-            <Option
-              type="button"
-              theme={theme}
-              isActive={activeOption === 'Trending'}
-              onClick={() => getActiveOption('Trending')}
-            >
-              <HiFire />
-              <OptionText>Trending</OptionText>
-            </Option>
-            <Option
-              type="button"
-              theme={theme}
-              isActive={activeOption === 'Gaming'}
-              onClick={() => getActiveOption('Gaming')}
-            >
-              <SiYoutubegaming />
-              <OptionText>Gaming</OptionText>
-            </Option>
-            <Option
-              type="button"
-              theme={theme}
-              isActive={activeOption === 'Saved videos'}
-              onClick={() => getActiveOption('Saved videos')}
-            >
-              <MdPlaylistAdd />
-              <OptionText>Saved videos</OptionText>
-            </Option>
+            <OptionList>
+              <Option
+                type="button"
+                theme={theme}
+                isActive={activeOption === 'Home'}
+                onClick={() => getActiveOption('Home')}
+              >
+                <AiFillHome />
+                <OptionText isActive={activeOption === 'Home'}>Home</OptionText>
+              </Option>
+            </OptionList>
+            <OptionList>
+              <Option
+                type="button"
+                theme={theme}
+                isActive={activeOption === 'Trending'}
+                onClick={() => getActiveOption('Trending')}
+              >
+                <HiFire />
+                <OptionText isActive={activeOption === 'Trending'}>
+                  Trending
+                </OptionText>
+              </Option>
+            </OptionList>
+            <OptionList>
+              <Option
+                type="button"
+                theme={theme}
+                isActive={activeOption === 'Gaming'}
+                onClick={() => getActiveOption('Gaming')}
+              >
+                <SiYoutubegaming />
+                <OptionText isActive={activeOption === 'Gaming'}>
+                  Gaming
+                </OptionText>
+              </Option>
+            </OptionList>
+            <OptionList>
+              <Option
+                type="button"
+                theme={theme}
+                isActive={activeOption === 'Saved videos'}
+                onClick={() => getActiveOption('Saved videos')}
+              >
+                <MdPlaylistAdd />
+                <OptionText isActive={activeOption === 'Saved videos'}>
+                  Saved videos
+                </OptionText>
+              </Option>
+            </OptionList>
           </OptionsContainer>
           <ContactUsContainer theme={theme}>
             <ContactUsDesc>CONTACT US</ContactUsDesc>

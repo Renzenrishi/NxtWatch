@@ -7,17 +7,23 @@ export const SidebarContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  height: 90vh;
+  height: 93vh;
   padding: 10px;
   background-color: ${props =>
     props.theme === 'light' ? '#ffffff' : '#181818'};
 `
 
-export const OptionsContainer = styled.div`
+export const OptionsContainer = styled.ul`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  list-style-type: none;
+  padding: 0px;
+`
+
+export const OptionList = styled.li`
+  color: ${props => (props.theme === 'light' ? '' : '#ffffff')};
 `
 
 export const Option = styled.button`
@@ -30,13 +36,14 @@ export const Option = styled.button`
   font-size: 20px;
   width: 15vw;
   background-color: ${props => (props.isActive ? '#d7dfe9' : '')};
-  color: ${props => (props.theme === 'light' ? '' : '#ffffff')};
+  color: ${props => (props.isActive ? '#ff0000' : '')};
 `
 
 export const OptionText = styled.p`
   margin-left: 20px;
   font-size: 15px;
   font-weight: bold;
+  color: ${props => (props.isActive ? '#000000' : '#7e858e')};
 `
 
 export const ContactUsContainer = styled.div`
@@ -53,7 +60,7 @@ export const LogoContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
-  margin-top: 20px;
+  margin-top: 10px;
 `
 
 export const SocialMediaLogo = styled.img`
