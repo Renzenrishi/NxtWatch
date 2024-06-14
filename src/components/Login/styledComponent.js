@@ -27,7 +27,7 @@ export const LoginLogo = styled.img`
   height: 6vh;
 `
 
-export const LoginFormContainer = styled.div`
+export const LoginFormContainer = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -55,7 +55,7 @@ export const InputBar = styled.input`
 `
 
 export const LoginBtn = styled.button`
-  border: 0px;
+  border-width: 0px;
   background-color: #3b82f6;
   color: white;
   padding: 10px;

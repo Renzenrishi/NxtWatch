@@ -44,3 +44,45 @@ export const LogoutBtn = styled.button`
   cursor: pointer;
   font-weight: bold;
 `
+
+export const LogoutBtnPopupContainer = styled.div`
+  background-color: ${props =>
+    props.theme === 'light' ? '#ffffff' : '#181818'};
+  border-radius: 10px;
+  width: 23vw;
+  height: 23vh;
+  text-align: center;
+  padding: 10px;
+  color: ${props => (props.theme === 'light' ? '#00306e' : '#ffffff')};
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-weight: 600;
+`
+
+export const CancelBtn = styled.button`
+  background-color: transparent;
+  color: white;
+  border: 1px solid #616e7c;
+  padding: 5px;
+  border-radius: 2px;
+  width: 100px;
+  height: 40px;
+  margin-right: 10px;
+  cursor: pointer;
+  color: #7e858e;
+  font-weight: bold;
+`
+
+export const ConfirmBtn = styled.button`
+  background-color: #3b82f6;
+  color: white;
+  border: 0px;
+  padding: 5px;
+  border-radius: 2px;
+  width: 100px;
+  height: 40px;
+  cursor: pointer;
+  font-weight: bold;
+`

@@ -2,6 +2,8 @@ import {Component} from 'react'
 
 import Cookies from 'js-cookie'
 
+import NxtWatchContext from '../../context/NxtwatchContext'
+
 import {
   LoginPageContainer,
   LoginPageContent,
@@ -10,9 +12,8 @@ import {
   Label,
   InputBar,
   LoginBtn,
+  ErrorMsg,
 } from './styledComponent'
-
-import NxtWatchContext from '../../context/NxtwatchContext'
 
 class Login extends Component {
   state = {
@@ -83,8 +84,6 @@ class Login extends Component {
         {value => {
           const {theme} = value
 
-          console.log(theme)
-
           return (
             <LoginPageContainer theme={theme}>
               <LoginPageContent theme={theme}>
@@ -130,7 +129,7 @@ class Login extends Component {
                     <label htmlFor="1">Show password</label>
                   </div>
                   <LoginBtn type="submit">Login</LoginBtn>
-                  {showSubmitErr && <p className="ErrorMsg">{errorMsg}</p>}
+                  {showSubmitErr && <ErrorMsg>{errorMsg}</ErrorMsg>}
                 </LoginFormContainer>
               </LoginPageContent>
             </LoginPageContainer>
