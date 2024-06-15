@@ -13,6 +13,8 @@ import NxtWatchContext from './context/NxtwatchContext'
 
 import NotFound from './components/NotFound'
 
+import VideoItemDetails from './components/VideoItemDetails'
+
 class App extends Component {
   state = {
     theme: 'light',
@@ -48,6 +50,11 @@ class App extends Component {
         <Switch>
           <Route exact path="/login" component={Login} />
           <ProtectedRoute exact path="/" component={Home} />
+          <ProtectedRoute
+            exact
+            path="/videos/:id"
+            component={VideoItemDetails}
+          />
           <Route exact path="/not-found" component={NotFound} />
           <Redirect to="/not-found" />
         </Switch>

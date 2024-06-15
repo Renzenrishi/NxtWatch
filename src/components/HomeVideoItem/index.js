@@ -1,5 +1,7 @@
 import {formatDistanceToNowStrict} from 'date-fns'
 
+import {Link} from 'react-router-dom'
+
 import NxtWatchContext from '../../context/NxtwatchContext'
 
 import {
@@ -27,20 +29,22 @@ const HomeVideoItem = props => (
 
       const getDate = () => formatDistanceToNowStrict(new Date(publishedAt))
       return (
-        <VideoItem>
-          <Thumbnail src={thumbnailUrl} alt={channel} />
-          <VideoItemDescContainer>
-            <ProfileImg src={profileImageUrl} alt="profile" />
-            <VideoItemDesc theme={theme}>
-              <VideoTitle>{title}</VideoTitle>
-              <ChannelName>{name}</ChannelName>
-              <ViewsContainer>
-                <Views>{viewCount} views</Views>
-                <li>{getDate()} ago</li>
-              </ViewsContainer>
-            </VideoItemDesc>
-          </VideoItemDescContainer>
-        </VideoItem>
+        <Link to={`/videos/${id}`}>
+          <VideoItem>
+            <Thumbnail src={thumbnailUrl} alt={channel} />
+            <VideoItemDescContainer>
+              <ProfileImg src={profileImageUrl} alt="profile" />
+              <VideoItemDesc theme={theme}>
+                <VideoTitle>{title}</VideoTitle>
+                <ChannelName>{name}</ChannelName>
+                <ViewsContainer>
+                  <Views>{viewCount} views</Views>
+                  <li>{getDate()} ago</li>
+                </ViewsContainer>
+              </VideoItemDesc>
+            </VideoItemDescContainer>
+          </VideoItem>
+        </Link>
       )
     }}
   </NxtWatchContext.Consumer>

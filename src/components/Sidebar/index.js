@@ -1,3 +1,5 @@
+import {Link} from 'react-router-dom'
+
 import {AiFillHome} from 'react-icons/ai'
 
 import {HiFire} from 'react-icons/hi'
@@ -28,56 +30,66 @@ const Sidebar = () => (
       return (
         <SidebarContainer theme={theme}>
           <OptionsContainer>
-            <OptionList>
-              <Option
-                type="button"
-                theme={theme}
-                isActive={activeOption === 'Home'}
-                onClick={() => getActiveOption('Home')}
-              >
-                <AiFillHome />
-                <OptionText isActive={activeOption === 'Home'}>Home</OptionText>
-              </Option>
-            </OptionList>
-            <OptionList>
-              <Option
-                type="button"
-                theme={theme}
-                isActive={activeOption === 'Trending'}
-                onClick={() => getActiveOption('Trending')}
-              >
-                <HiFire />
-                <OptionText isActive={activeOption === 'Trending'}>
-                  Trending
-                </OptionText>
-              </Option>
-            </OptionList>
-            <OptionList>
-              <Option
-                type="button"
-                theme={theme}
-                isActive={activeOption === 'Gaming'}
-                onClick={() => getActiveOption('Gaming')}
-              >
-                <SiYoutubegaming />
-                <OptionText isActive={activeOption === 'Gaming'}>
-                  Gaming
-                </OptionText>
-              </Option>
-            </OptionList>
-            <OptionList>
-              <Option
-                type="button"
-                theme={theme}
-                isActive={activeOption === 'Saved videos'}
-                onClick={() => getActiveOption('Saved videos')}
-              >
-                <MdPlaylistAdd />
-                <OptionText isActive={activeOption === 'Saved videos'}>
-                  Saved videos
-                </OptionText>
-              </Option>
-            </OptionList>
+            <Link to="/">
+              <OptionList>
+                <Option
+                  type="button"
+                  theme={theme}
+                  isActive={activeOption === 'Home'}
+                  onClick={() => getActiveOption('Home')}
+                >
+                  <AiFillHome />
+                  <OptionText isActive={activeOption === 'Home'}>
+                    Home
+                  </OptionText>
+                </Option>
+              </OptionList>
+            </Link>
+            <Link to="/trending">
+              <OptionList>
+                <Option
+                  type="button"
+                  theme={theme}
+                  isActive={activeOption === 'Trending'}
+                  onClick={() => getActiveOption('Trending')}
+                >
+                  <HiFire />
+                  <OptionText isActive={activeOption === 'Trending'}>
+                    Trending
+                  </OptionText>
+                </Option>
+              </OptionList>
+            </Link>
+            <Link to="/gaming">
+              <OptionList>
+                <Option
+                  type="button"
+                  theme={theme}
+                  isActive={activeOption === 'Gaming'}
+                  onClick={() => getActiveOption('Gaming')}
+                >
+                  <SiYoutubegaming />
+                  <OptionText isActive={activeOption === 'Gaming'}>
+                    Gaming
+                  </OptionText>
+                </Option>
+              </OptionList>
+            </Link>
+            <Link to="/saved-videos">
+              <OptionList>
+                <Option
+                  type="button"
+                  theme={theme}
+                  isActive={activeOption === 'Saved videos'}
+                  onClick={() => getActiveOption('Saved videos')}
+                >
+                  <MdPlaylistAdd />
+                  <OptionText isActive={activeOption === 'Saved videos'}>
+                    Saved videos
+                  </OptionText>
+                </Option>
+              </OptionList>
+            </Link>
           </OptionsContainer>
           <ContactUsContainer theme={theme}>
             <ContactUsDesc>CONTACT US</ContactUsDesc>
