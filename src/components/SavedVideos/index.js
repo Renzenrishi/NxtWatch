@@ -5,9 +5,15 @@ import Header from '../Header'
 import {Content, FailureContainer, FailureImg} from '../Home/styledComponent'
 import Sidebar from '../Sidebar'
 
-import {TrendingContainer, Banner, Icon} from '../Trending/styledComponents'
+import {
+  TrendingContainer,
+  Banner,
+  Icon,
+  TSVideosContainer,
+} from '../Trending/styledComponents'
 
 import NxtWatchContext from '../../context/NxtwatchContext'
+import TSVideoItem from '../T&SVideoItem'
 
 class SavedVideos extends Component {
   render() {
@@ -25,12 +31,22 @@ class SavedVideos extends Component {
                 <Sidebar />
                 <TrendingContainer theme={theme} data-testid="home">
                   {savedVideosList.length > 0 ? (
-                    <Banner theme={theme}>
-                      <Icon theme={theme}>
-                        <HiFire />
-                      </Icon>
-                      <h1>Saved Videos</h1>
-                    </Banner>
+                    <>
+                      <Banner theme={theme}>
+                        <Icon theme={theme}>
+                          <HiFire />
+                        </Icon>
+                        <h1>Saved Videos</h1>
+                      </Banner>
+                      <TSVideosContainer>
+                        {savedVideosList.map(savedVideo => (
+                          <TSVideoItem
+                            details={savedVideo}
+                            key={savedVideo.id}
+                          />
+                        ))}
+                      </TSVideosContainer>
+                    </>
                   ) : (
                     <FailureContainer theme={theme}>
                       <FailureImg
