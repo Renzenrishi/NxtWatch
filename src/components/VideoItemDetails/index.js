@@ -24,6 +24,10 @@ import {
   VideoContainer,
   ViewsContainerVideoDetails,
   ViewsAndLikeBtnContainer,
+  VideoDetailsDescContainer,
+  LikeBtn,
+  DislikeBtn,
+  SaveBtn,
 } from './styledComponent'
 
 import NxtWatchContext from '../../context/NxtwatchContext'
@@ -107,11 +111,23 @@ class VideoItemDetails extends Component {
     return (
       <NxtWatchContext.Consumer>
         {value => {
-          const {theme} = value
+          const {
+            theme,
+            likeAndDislikeBtn,
+            changeLikeAndDislikeBtn,
+            saveBtn,
+            changeSaveBtn,
+            addVideoToSaveList,
+          } = value
+
+          const saveVideos = () => {
+            changeSaveBtn()
+            addVideoToSaveList(videosDetailsData)
+          }
 
           return (
             <div className="VideoPlayer">
-              <ReactPlayer height="600px" width="1100px" url={videoUrl} />
+              <ReactPlayer height="70vh" width="80vw" url={videoUrl} />
               <p>{title}</p>
               <ViewsAndLikeBtnContainer theme={theme}>
                 <ViewsContainerVideoDetails>
@@ -119,22 +135,34 @@ class VideoItemDetails extends Component {
                   <li>{getDate(publishedAt)} ago</li>
                 </ViewsContainerVideoDetails>
                 <div className="LikeShareBtnContainer">
-                  <button type="button" className="LikeBtn">
+                  <LikeBtn
+                    type="button"
+                    isActive={likeAndDislikeBtn}
+                    onClick={() => changeLikeAndDislikeBtn('like')}
+                  >
                     <BiLike />
-                    <span>Like</span>
-                  </button>
-                  <button type="button" className="LikeBtn">
+                    <span className="BtnText">Like</span>
+                  </LikeBtn>
+                  <DislikeBtn
+                    type="button"
+                    isActive={likeAndDislikeBtn}
+                    onClick={() => changeLikeAndDislikeBtn('dislike')}
+                  >
                     <BiDislike />
-                    <span>Dislike</span>
-                  </button>
-                  <button type="button" className="LikeBtn">
+                    <span className="BtnText">Dislike</span>
+                  </DislikeBtn>
+                  <SaveBtn
+                    type="button"
+                    isActive={saveBtn}
+                    onClick={saveVideos}
+                  >
                     <MdPlaylistAdd />
-                    <span>Save</span>
-                  </button>
+                    <span className="BtnText">Save</span>
+                  </SaveBtn>
                 </div>
               </ViewsAndLikeBtnContainer>
               <hr />
-              <div className="VideoDetailsDescContainer">
+              <VideoDetailsDescContainer theme={theme}>
                 <img
                   src={profileImageUrl}
                   alt={title}
@@ -145,7 +173,7 @@ class VideoItemDetails extends Component {
                   <p>{subscriberCount} subscribers</p>
                   <p>{description}</p>
                 </div>
-              </div>
+              </VideoDetailsDescContainer>
             </div>
           )
         }}

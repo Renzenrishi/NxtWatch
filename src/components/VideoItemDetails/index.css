@@ -10,24 +10,13 @@
 
 .VideoDetailsItemProfileImg {
   height: 7vh;
-}
-
-.LikeBtn {
-  border-width: 0px;
-  background-color: transparent;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  font-size: 18px;
-  color: #616e7c;
-}
-
-.VideoDetailsDescContainer {
-  display: flex;
-  align-items: flex-start;
-  margin-top: 20px;
+  margin-right: 10px;
 }
 
 .VDChannelName {
   margin-top: 0px;
+}
+
+.BtnText {
+  margin-left: 10px;
 }

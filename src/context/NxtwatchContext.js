@@ -5,6 +5,10 @@ const NxtWatchContext = React.createContext({
   changeTheme: () => {},
   activeOption: 'Home',
   getActiveOption: () => {},
+  likeAndDislikeBtn: '',
+  saveBtn: false,
+  changeSaveBtn: () => {},
+  savedVideosList: [],
 })
 
 export default NxtWatchContext

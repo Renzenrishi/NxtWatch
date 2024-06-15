@@ -9,6 +9,8 @@ export const VideoContainer = styled.div`
   background-color: ${props =>
     props.theme === 'light' ? '#f9f9f9' : ' #000000'};
   padding: 20px;
+  font-family: 'Roboto';
+  color: ${props => (props.theme === 'light' ? '' : '#f9f9f9')};
 `
 
 export const He = styled.h1``
@@ -27,5 +29,41 @@ export const ViewsAndLikeBtnContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: ${props => (props.theme === 'light' ? '' : '#f9f9f9')};
+`
+
+export const VideoDetailsDescContainer = styled.div`
+  display: flex;
+  align-items: flex-start;
+  margin-top: 20px;
+`
+
+export const LikeBtn = styled.button`
+  border-width: 0px;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 18px;
+  color: ${props => (props.isActive === 'like' ? '#3b82f6' : '#616e7c')};
+  cursor: pointer;
+`
+export const DislikeBtn = styled.button`
+  border-width: 0px;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 18px;
+  color: ${props => (props.isActive === 'dislike' ? '#3b82f6' : '#616e7c')};
+  cursor: pointer;
+`
+export const SaveBtn = styled.button`
+  border-width: 0px;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 18px;
+  color: ${props => (props.isActive ? '#3b82f6' : '#616e7c')};
+  cursor: pointer;
 `

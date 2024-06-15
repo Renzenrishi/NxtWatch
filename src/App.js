@@ -19,6 +19,9 @@ class App extends Component {
   state = {
     theme: 'light',
     activeOption: 'Home',
+    likeAndDislikeBtn: '',
+    saveBtn: false,
+    saveVideosList: [],
   }
 
   changeTheme = () => {
@@ -35,16 +38,51 @@ class App extends Component {
     this.setState({activeOption: value})
   }
 
+  changeLikeAndDislikeBtn = value => {
+    this.setState({likeAndDislikeBtn: value})
+  }
+
+  changeSaveBtn = () => {
+    this.setState(prevState => ({saveBtn: !prevState.saveBtn}))
+  }
+
+  addVideoToSaveList = videoItem => {
+    const {saveVideosList} = this.state
+
+    const findVideoItem = saveVideosList.find(each => each.id === videoItem.id)
+
+    if (findVideoItem === 'undefined') {
+      this.setState(prevState => ({
+        saveVideosList: [...prevState.saveVideosList, videoItem],
+      }))
+    }
+  }
+
   render() {
-    const {theme, activeOption} = this.state
+    const {
+      theme,
+      activeOption,
+      likeAndDislikeBtn,
+      saveBtn,
+      saveVideosList,
+    } = this.state
+
+    console.log(saveVideosList)
 
     return (
       <NxtWatchContext.Provider
         value={{
           theme,
           activeOption,
+          likeAndDislikeBtn,
+          saveBtn,
+          saveVideosList,
           changeTheme: this.changeTheme,
           getActiveOption: this.getActiveOption,
+          changeLikeAndDislikeBtn: this.changeLikeAndDislikeBtn,
+          changeSaveBtn: this.changeSaveBtn,
+          savedVideosList: [],
+          addVideoToSaveList: this.addVideoToSaveList,
         }}
       >
         <Switch>
