@@ -72,11 +72,27 @@ class Trending extends Component {
     const {trendingVideos} = this.state
 
     return (
-      <TSVideosContainer>
-        {trendingVideos.map(trendingVideo => (
-          <TSVideoItem details={trendingVideo} key={trendingVideo.id} />
-        ))}
-      </TSVideosContainer>
+      <NxtWatchContext.Consumer>
+        {value => {
+          const {theme} = value
+
+          return (
+            <>
+              <Banner theme={theme}>
+                <Icon theme={theme}>
+                  <HiFire />
+                </Icon>
+                <h1>Trending</h1>
+              </Banner>
+              <TSVideosContainer>
+                {trendingVideos.map(trendingVideo => (
+                  <TSVideoItem details={trendingVideo} key={trendingVideo.id} />
+                ))}
+              </TSVideosContainer>
+            </>
+          )
+        }}
+      </NxtWatchContext.Consumer>
     )
   }
 
@@ -107,7 +123,7 @@ class Trending extends Component {
             <button
               type="button"
               className="RetryBtn"
-              onClick={this.getVideoDetails}
+              onClick={this.getTrendingVideos}
             >
               Retry
             </button>
@@ -142,12 +158,6 @@ class Trending extends Component {
               <Content>
                 <Sidebar />
                 <TrendingContainer theme={theme} data-testid="home">
-                  <Banner theme={theme}>
-                    <Icon theme={theme}>
-                      <HiFire />
-                    </Icon>
-                    <h1>Trending</h1>
-                  </Banner>
                   {this.renderApiStatus()}
                 </TrendingContainer>
               </Content>

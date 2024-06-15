@@ -80,7 +80,7 @@ class App extends Component {
           activeOption,
           likeAndDislikeBtn,
           saveBtn,
-          saveVideosList,
+          saveVideosList: [],
           changeTheme: this.changeTheme,
           getActiveOption: this.getActiveOption,
           changeLikeAndDislikeBtn: this.changeLikeAndDislikeBtn,

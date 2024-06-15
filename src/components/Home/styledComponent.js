@@ -49,6 +49,7 @@ export const NoSearchText = styled.p`
 `
 
 export const FailureContainer = styled.div`
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;

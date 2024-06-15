@@ -2,7 +2,7 @@ import {Component} from 'react'
 
 import {HiFire} from 'react-icons/hi'
 import Header from '../Header'
-import {Content} from '../Home/styledComponent'
+import {Content, FailureContainer, FailureImg} from '../Home/styledComponent'
 import Sidebar from '../Sidebar'
 
 import {TrendingContainer, Banner, Icon} from '../Trending/styledComponents'
@@ -14,7 +14,9 @@ class SavedVideos extends Component {
     return (
       <NxtWatchContext.Consumer>
         {value => {
-          const {theme} = value
+          const {theme, savedVideosList} = value
+
+          console.log(savedVideosList)
 
           return (
             <>
@@ -22,12 +24,23 @@ class SavedVideos extends Component {
               <Content>
                 <Sidebar />
                 <TrendingContainer theme={theme} data-testid="home">
-                  <Banner theme={theme}>
-                    <Icon theme={theme}>
-                      <HiFire />
-                    </Icon>
-                    <h1>Saved Videos</h1>
-                  </Banner>
+                  {savedVideosList.length > 0 ? (
+                    <Banner theme={theme}>
+                      <Icon theme={theme}>
+                        <HiFire />
+                      </Icon>
+                      <h1>Saved Videos</h1>
+                    </Banner>
+                  ) : (
+                    <FailureContainer theme={theme}>
+                      <FailureImg
+                        src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-saved-videos-img.png"
+                        alt="no saved"
+                      />
+                      <h1>No saved videos found</h1>
+                      <p>You can save your videos while watching them</p>
+                    </FailureContainer>
+                  )}
                 </TrendingContainer>
               </Content>
             </>
