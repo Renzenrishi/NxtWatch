@@ -13,6 +13,7 @@ import {
 } from '../Trending/styledComponents'
 
 import NxtWatchContext from '../../context/NxtwatchContext'
+
 import TSVideoItem from '../T&SVideoItem'
 
 class SavedVideos extends Component {
@@ -21,8 +22,6 @@ class SavedVideos extends Component {
       <NxtWatchContext.Consumer>
         {value => {
           const {theme, savedVideosList} = value
-
-          console.log(savedVideosList)
 
           return (
             <>
