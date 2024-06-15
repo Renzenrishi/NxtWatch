@@ -69,7 +69,7 @@ class Home extends Component {
 
     const response = await fetch(url, options)
 
-    if (response.ok === false) {
+    if (response.ok) {
       const data = await response.json()
 
       const videosList = data.videos
