@@ -4,6 +4,8 @@ export const VideoItem = styled.li`
   width: 280px;
   font-family: 'Roboto';
   margin-bottom: 20px;
+  height: 40vh;
+  margin-right: 20px;
 `
 export const Thumbnail = styled.img`
   width: 280px;

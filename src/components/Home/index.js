@@ -16,9 +16,15 @@ import {
   HomeContainer,
   SearchBar,
   SearchInputContainer,
+  SearchBtn,
+  NoSearchHeading,
+  NoSearchText,
+  FailureImg,
+  FailureContainer,
 } from './styledComponent'
 
 import NxtWatchContext from '../../context/NxtwatchContext'
+
 import HomeVideoItem from '../HomeVideoItem'
 
 class Home extends Component {
@@ -26,6 +32,7 @@ class Home extends Component {
     apiStatus: '',
     searchInputVal: '',
     homeVideosData: [],
+    search: '',
   }
 
   componentDidMount() {
@@ -36,14 +43,22 @@ class Home extends Component {
     this.setState({searchInputVal: event.target.value})
   }
 
+  getSearchText = () => {
+    const {searchInputVal} = this.state
+    this.setState(
+      {search: searchInputVal, searchInputVal: ''},
+      this.getHomeVideos,
+    )
+  }
+
   getHomeVideos = async () => {
     this.setState({apiStatus: 'LOADING'})
 
-    const {searchInputVal} = this.state
+    const {search} = this.state
 
     const jwtToken = Cookies.get('jwt_token')
 
-    const url = `https://apis.ccbp.in/videos/all?search=${searchInputVal}`
+    const url = `https://apis.ccbp.in/videos/all?search=${search}`
 
     const options = {
       method: 'GET',
@@ -54,7 +69,7 @@ class Home extends Component {
 
     const response = await fetch(url, options)
 
-    if (response.ok) {
+    if (response.ok === false) {
       const data = await response.json()
 
       const videosList = data.videos
@@ -89,12 +104,20 @@ class Home extends Component {
             <SearchInputContainer>
               <SearchBar
                 type="search"
-                value={searchInputVal}
                 placeholder="Search"
+                value={searchInputVal}
                 onChange={this.getSearchInput}
                 theme={theme}
               />
-              <IoIosSearch />
+              <SearchBtn
+                type="button"
+                className=""
+                onClick={this.getSearchText}
+                theme={theme}
+              >
+                {' '}
+                <IoIosSearch />
+              </SearchBtn>
             </SearchInputContainer>
           )
         }}
@@ -106,11 +129,43 @@ class Home extends Component {
     const {homeVideosData} = this.state
 
     return (
-      <ul className="HomeVideosContainer">
-        {homeVideosData.map(each => (
-          <HomeVideoItem details={each} key={each.id} />
-        ))}
-      </ul>
+      <NxtWatchContext.Consumer>
+        {value => {
+          const {theme} = value
+
+          const videos =
+            homeVideosData.length > 0 ? (
+              <ul className="HomeVideosContainer">
+                {homeVideosData.map(each => (
+                  <HomeVideoItem details={each} key={each.id} />
+                ))}
+              </ul>
+            ) : (
+              <div className="NoSearchResultsContainer">
+                <img
+                  src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-search-results-img.png"
+                  alt="no videos"
+                  className="NoSearchResultsImg"
+                />
+                <NoSearchHeading theme={theme}>
+                  No Search results found
+                </NoSearchHeading>
+                <NoSearchText theme={theme}>
+                  Try different key words or remove search filter
+                </NoSearchText>
+                <button
+                  type="button"
+                  className="RetryBtn"
+                  onClick={this.getHomeVideos}
+                >
+                  Retry
+                </button>
+              </div>
+            )
+
+          return videos
+        }}
+      </NxtWatchContext.Consumer>
     )
   }
 
@@ -121,12 +176,34 @@ class Home extends Component {
   )
 
   renderFailureView = () => (
-    <div className="FailureContainer">
-      <img
-        src="https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png"
-        alt="failure"
-      />
-    </div>
+    <NxtWatchContext.Consumer>
+      {value => {
+        const {theme} = value
+
+        return (
+          <FailureContainer theme={theme}>
+            <FailureImg
+              src={
+                theme === 'light'
+                  ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
+                  : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
+              }
+              alt="failure"
+            />
+            <h1>Oops! Something Went Wrong</h1>
+            <p>We are having some trouble to complete your request</p>
+            <p>Please try again</p>
+            <button
+              type="button"
+              className="RetryBtn"
+              onClick={this.getHomeVideos}
+            >
+              Retry
+            </button>
+          </FailureContainer>
+        )
+      }}
+    </NxtWatchContext.Consumer>
   )
 
   renderApiStatus = () => {

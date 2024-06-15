@@ -19,7 +19,6 @@ import {
   OptionText,
   OptionList,
 } from './styledComponent'
-import {Content} from '../Home/styledComponent'
 
 const Sidebar = () => (
   <NxtWatchContext.Consumer>

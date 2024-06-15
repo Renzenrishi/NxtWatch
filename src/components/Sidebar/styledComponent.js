@@ -8,7 +8,7 @@ export const SidebarContainer = styled.nav`
   justify-content: space-between;
   align-items: flex-start;
   padding: 10px;
-  height: 100vh;
+  height: 90vh;
   background-color: ${props =>
     props.theme === 'light' ? '#ffffff' : '#181818'};
 `
