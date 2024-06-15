@@ -10,8 +10,8 @@ export const Content = styled.div`
 export const HomeContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   width: 84vw;
   background-color: ${props =>
     props.theme === 'light' ? '#f9f9f9' : ' #000000'};
