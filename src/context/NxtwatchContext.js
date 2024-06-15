@@ -3,7 +3,7 @@ import React from 'react'
 const NxtWatchContext = React.createContext({
   theme: 'light',
   changeTheme: () => {},
-  activeOption: 'Home',
+  activeOption: '',
   getActiveOption: () => {},
   likeAndDislikeBtn: '',
   saveBtn: false,

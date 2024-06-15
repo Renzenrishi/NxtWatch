@@ -30,7 +30,7 @@ const Sidebar = () => (
       return (
         <SidebarContainer theme={theme}>
           <OptionsContainer>
-            <Link to="/">
+            <Link className="linkItem" to="/">
               <OptionList>
                 <Option
                   type="button"
@@ -45,7 +45,7 @@ const Sidebar = () => (
                 </Option>
               </OptionList>
             </Link>
-            <Link to="/trending">
+            <Link className="linkItem" to="/trending">
               <OptionList>
                 <Option
                   type="button"
@@ -60,7 +60,7 @@ const Sidebar = () => (
                 </Option>
               </OptionList>
             </Link>
-            <Link to="/gaming">
+            <Link className="linkItem" to="/gaming">
               <OptionList>
                 <Option
                   type="button"
@@ -75,7 +75,7 @@ const Sidebar = () => (
                 </Option>
               </OptionList>
             </Link>
-            <Link to="/saved-videos">
+            <Link className="linkItem" to="/saved-videos">
               <OptionList>
                 <Option
                   type="button"

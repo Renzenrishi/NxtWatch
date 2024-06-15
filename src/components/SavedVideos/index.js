@@ -1,15 +1,15 @@
 import {Component} from 'react'
 
 import {HiFire} from 'react-icons/hi'
-
 import Header from '../Header'
 import {Content} from '../Home/styledComponent'
 import Sidebar from '../Sidebar'
-import NxtWatchContext from '../../context/NxtwatchContext'
 
 import {TrendingContainer, Banner, Icon} from '../Trending/styledComponents'
 
-class Gaming extends Component {
+import NxtWatchContext from '../../context/NxtwatchContext'
+
+class SavedVideos extends Component {
   render() {
     return (
       <NxtWatchContext.Consumer>
@@ -26,7 +26,7 @@ class Gaming extends Component {
                     <Icon theme={theme}>
                       <HiFire />
                     </Icon>
-                    <h1>Gaming</h1>
+                    <h1>Saved Videos</h1>
                   </Banner>
                 </TrendingContainer>
               </Content>
@@ -38,4 +38,4 @@ class Gaming extends Component {
   }
 }
 
-export default Gaming
+export default SavedVideos

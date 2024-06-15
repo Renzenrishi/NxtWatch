@@ -29,7 +29,7 @@ const HomeVideoItem = props => (
 
       const getDate = () => formatDistanceToNowStrict(new Date(publishedAt))
       return (
-        <Link to={`/videos/${id}`}>
+        <Link className="linkItem" to={`/videos/${id}`}>
           <VideoItem>
             <Thumbnail src={thumbnailUrl} alt={channel} />
             <VideoItemDescContainer>
