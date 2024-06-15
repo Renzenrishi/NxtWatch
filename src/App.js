@@ -51,7 +51,7 @@ class App extends Component {
 
     const findVideoItem = saveVideosList.find(each => each.id === videoItem.id)
 
-    if (findVideoItem === 'undefined') {
+    if (findVideoItem === undefined) {
       this.setState(prevState => ({
         saveVideosList: [...prevState.saveVideosList, videoItem],
       }))

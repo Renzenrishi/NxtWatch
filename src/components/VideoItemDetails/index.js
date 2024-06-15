@@ -157,7 +157,9 @@ class VideoItemDetails extends Component {
                     onClick={saveVideos}
                   >
                     <MdPlaylistAdd />
-                    <span className="BtnText">Save</span>
+                    <span className="BtnText">
+                      {saveBtn ? 'Saved' : 'Save'}
+                    </span>
                   </SaveBtn>
                 </div>
               </ViewsAndLikeBtnContainer>
