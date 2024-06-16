@@ -16,6 +16,16 @@ export const HomeContainer = styled.div`
   background-color: ${props =>
     props.theme === 'light' ? '#f9f9f9' : '#181818'};
 `
+export const BannerContainer = styled.div`
+  background-image: url('https://assets.ccbp.in/frontend/react-js/nxt-watch-banner-bg.png');
+  background-size: cover;
+  height: 30vh;
+  width: 80vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+`
 
 export const SearchInputContainer = styled.div`
   display: flex;

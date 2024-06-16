@@ -134,7 +134,9 @@ class VideoItemDetails extends Component {
               <ViewsAndLikeBtnContainer theme={theme}>
                 <ViewsContainerVideoDetails>
                   <Views>{viewCount} views</Views>
-                  <li>{getDate(publishedAt)} ago</li>
+                  <li>
+                    <p>{getDate(publishedAt)} ago</p>
+                  </li>
                 </ViewsContainerVideoDetails>
                 <div className="LikeShareBtnContainer">
                   <LikeBtn
@@ -205,10 +207,13 @@ class VideoItemDetails extends Component {
                   ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
                   : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
               }
-              alt="failure"
+              alt="failure view"
             />
             <h1>Oops! Something Went Wrong</h1>
-            <p>We are having some trouble to complete your request</p>
+            <p>
+              We are having some trouble to complete your request. Please try
+              again.
+            </p>
             <p>Please try again</p>
             <button
               type="button"

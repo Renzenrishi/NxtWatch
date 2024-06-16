@@ -23,10 +23,15 @@ class App extends Component {
   state = {
     theme: 'light',
     activeOption: '',
+    hideBanner: false,
     likeAndDislikeBtn: '',
     saveBtn: false,
     savedVideosIdList: [],
     savedVideosList: [],
+  }
+
+  closeBanner = () => {
+    this.setState({hideBanner: true})
   }
 
   changeTheme = () => {
@@ -71,6 +76,7 @@ class App extends Component {
       theme,
       activeOption,
       likeAndDislikeBtn,
+      hideBanner,
       saveBtn,
       savedVideosList,
       savedVideosIdList,
@@ -81,10 +87,12 @@ class App extends Component {
         value={{
           theme,
           activeOption,
+          hideBanner,
           likeAndDislikeBtn,
           saveBtn,
           savedVideosList,
           savedVideosIdList,
+          closeBanner: this.closeBanner,
           changeTheme: this.changeTheme,
           getActiveOption: this.getActiveOption,
           changeLikeAndDislikeBtn: this.changeLikeAndDislikeBtn,

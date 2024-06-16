@@ -76,7 +76,7 @@ const Header = props => (
             >
               {close => (
                 <LogoutBtnPopupContainer theme={theme}>
-                  <p>Are you sure you want to logout?</p>
+                  <p>Are you sure, you want to logout</p>
                   <div>
                     <CancelBtn onClick={() => close()}>Cancel</CancelBtn>
                     <ConfirmBtn onClick={logout}>Confirm</ConfirmBtn>

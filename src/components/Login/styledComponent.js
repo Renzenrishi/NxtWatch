@@ -57,7 +57,7 @@ export const InputBar = styled.input`
 export const LoginBtn = styled.button`
   border-width: 0px;
   background-color: #3b82f6;
-  color: white;
+  color: #ffffff;
   padding: 10px;
   border-radius: 5px;
   margin-top: 20px;

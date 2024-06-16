@@ -38,7 +38,9 @@ const TSVideoItem = props => {
                   <ChannelName>{name}</ChannelName>
                   <ViewsContainer>
                     <Views>{viewCount} views</Views>
-                    <li>{getDate()} ago</li>
+                    <li>
+                      <p>{getDate()} ago</p>
+                    </li>
                   </ViewsContainer>
                 </VideoItemDesc>
               </TSVideoItemDescContainer>

@@ -5,7 +5,7 @@ export const VideoContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 84vw;
+  width: 80vw;
   background-color: ${props =>
     props.theme === 'light' ? '#f9f9f9' : '#0f0f0f'};
   padding: 20px;

@@ -21,6 +21,7 @@ import {
   NoSearchText,
   FailureImg,
   FailureContainer,
+  BannerContainer,
 } from './styledComponent'
 
 import NxtWatchContext from '../../context/NxtwatchContext'
@@ -223,7 +224,7 @@ class Home extends Component {
     return (
       <NxtWatchContext.Consumer>
         {value => {
-          const {theme} = value
+          const {theme, hideBanner, closeBanner} = value
 
           return (
             <>
@@ -231,29 +232,35 @@ class Home extends Component {
               <Content>
                 <Sidebar />
                 <HomeContainer theme={theme} data-testid="home">
-                  <div className="banner-container" data-testid="banner">
-                    <div className="BannerContent">
-                      <img
-                        src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-                        alt="nxt watch logo"
-                        className="banner-logo"
-                      />
-                      <p className="BannerPara">
-                        Buy Nxt Watch Premium prepaid plans with UPI
-                      </p>
-                      <button type="button" className="GetItNowBtn">
-                        GET IT NOW
+                  {hideBanner ? (
+                    ''
+                  ) : (
+                    <BannerContainer data-testid="banner">
+                      <div className="BannerContent">
+                        <img
+                          src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
+                          alt="nxt watch logo"
+                          className="banner-logo"
+                        />
+                        <p className="BannerPara">
+                          Buy Nxt Watch Premium prepaid plans with UPI
+                        </p>
+                        <button type="button" className="GetItNowBtn">
+                          GET IT NOW
+                        </button>
+                      </div>
+                      {/* eslint-disable-next-line */}
+                      <button
+                        type="button"
+                        className="CloseBtn"
+                        data-testid="close"
+                        onClick={() => closeBanner()}
+                      >
+                        <IoMdClose />
                       </button>
-                    </div>
-                    {/* eslint-disable-next-line */}
-                    <button
-                      type="button"
-                      className="CloseBtn"
-                      data-testid="close"
-                    >
-                      <IoMdClose />
-                    </button>
-                  </div>
+                    </BannerContainer>
+                  )}
+
                   <div className="HomePageContent">
                     {this.renderSearchInput()}
                     {this.renderApiStatus()}

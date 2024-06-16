@@ -1,5 +1,7 @@
 import {Component} from 'react'
 
+import {Redirect} from 'react-router-dom'
+
 import Cookies from 'js-cookie'
 
 import NxtWatchContext from '../../context/NxtwatchContext'
@@ -79,6 +81,12 @@ class Login extends Component {
       showPassword,
     } = this.state
 
+    const jwtToken = Cookies.get('jwt_token')
+
+    if (jwtToken !== undefined) {
+      return <Redirect to="/" />
+    }
+
     return (
       <NxtWatchContext.Consumer>
         {value => {
@@ -93,7 +101,7 @@ class Login extends Component {
                       ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
                       : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
                   }
-                  alt="logo"
+                  alt="website logo"
                 />
                 <LoginFormContainer theme={theme} onSubmit={this.LoginUser}>
                   <Label htmlFor="username" theme={theme}>

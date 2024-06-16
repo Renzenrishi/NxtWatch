@@ -39,7 +39,9 @@ const HomeVideoItem = props => (
                 <ChannelName>{name}</ChannelName>
                 <ViewsContainer>
                   <Views>{viewCount} views</Views>
-                  <li>{getDate()} ago</li>
+                  <li>
+                    <p>{getDate(publishedAt)} ago</p>
+                  </li>
                 </ViewsContainer>
               </VideoItemDesc>
             </VideoItemDescContainer>
