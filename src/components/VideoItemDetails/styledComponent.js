@@ -42,7 +42,7 @@ export const LikeBtn = styled.button`
   flex-direction: row;
   align-items: center;
   font-size: 18px;
-  color: ${props => (props.isActive === 'like' ? '#2563eb' : '#64748b')};
+  color: ${props => (props.activeLike ? '#2563eb' : '#64748b')};
   cursor: pointer;
 `
 export const DislikeBtn = styled.button`
@@ -52,7 +52,7 @@ export const DislikeBtn = styled.button`
   flex-direction: row;
   align-items: center;
   font-size: 18px;
-  color: ${props => (props.isActive === 'dislike' ? '#2563eb' : '#64748b')};
+  color: ${props => (props.activeDislike ? '#2563eb' : '#64748b')};
   cursor: pointer;
 `
 export const SaveBtn = styled.button`

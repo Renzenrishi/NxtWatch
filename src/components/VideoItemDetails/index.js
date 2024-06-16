@@ -114,13 +114,23 @@ class VideoItemDetails extends Component {
         {value => {
           const {
             theme,
-            likeAndDislikeBtn,
-            changeLikeAndDislikeBtn,
             saveBtn,
             changeSaveBtn,
+            dislikedVideosList,
+            likedVideosList,
+            addLikeId,
+            addDislikeId,
             addVideoToSaveList,
             savedVideosIdList,
           } = value
+
+          const like = () => {
+            addLikeId(id)
+          }
+
+          const dislike = () => {
+            addDislikeId(id)
+          }
 
           const saveVideos = () => {
             changeSaveBtn(id)
@@ -141,16 +151,16 @@ class VideoItemDetails extends Component {
                 <div className="LikeShareBtnContainer">
                   <LikeBtn
                     type="button"
-                    isActive={likeAndDislikeBtn}
-                    onClick={() => changeLikeAndDislikeBtn('like')}
+                    activeLike={likedVideosList.includes(id)}
+                    onClick={like}
                   >
                     <BiLike />
                     <span className="BtnText">Like</span>
                   </LikeBtn>
                   <DislikeBtn
                     type="button"
-                    isActive={likeAndDislikeBtn}
-                    onClick={() => changeLikeAndDislikeBtn('dislike')}
+                    activeDislike={dislikedVideosList.includes(id)}
+                    onClick={dislike}
                   >
                     <BiDislike />
                     <span className="BtnText">Dislike</span>
@@ -172,7 +182,7 @@ class VideoItemDetails extends Component {
               <VideoDetailsDescContainer theme={theme}>
                 <img
                   src={profileImageUrl}
-                  alt={title}
+                  alt="channel logo"
                   className="VideoDetailsItemProfileImg"
                 />
                 <div>

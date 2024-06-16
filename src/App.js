@@ -24,10 +24,41 @@ class App extends Component {
     theme: 'light',
     activeOption: '',
     hideBanner: false,
-    likeAndDislikeBtn: '',
+    likedVideosList: [],
+    dislikedVideosList: [],
     saveBtn: false,
     savedVideosIdList: [],
     savedVideosList: [],
+  }
+
+  addLikeId = id => {
+    const {dislikedVideosList} = this.state
+
+    if (dislikedVideosList.includes(id)) {
+      this.setState(prevState => ({
+        dislikedVideosList: prevState.dislikedVideosList.filter(
+          each => each !== id,
+        ),
+      }))
+    } else {
+      this.setState(prevState => ({
+        likedVideosList: [...prevState.likedVideosList, id],
+      }))
+    }
+  }
+
+  addDislikeId = id => {
+    const {likedVideosList} = this.state
+
+    if (likedVideosList.includes(id)) {
+      this.setState(prevState => ({
+        likedVideosList: prevState.likedVideosList.filter(each => each !== id),
+      }))
+    } else {
+      this.setState(prevState => ({
+        dislikedVideosList: [...prevState.dislikedVideosList, id],
+      }))
+    }
   }
 
   closeBanner = () => {
@@ -46,10 +77,6 @@ class App extends Component {
 
   getActiveOption = value => {
     this.setState({activeOption: value})
-  }
-
-  changeLikeAndDislikeBtn = value => {
-    this.setState({likeAndDislikeBtn: value})
   }
 
   changeSaveBtn = id => {
@@ -75,12 +102,16 @@ class App extends Component {
     const {
       theme,
       activeOption,
-      likeAndDislikeBtn,
       hideBanner,
+      likedVideosList,
+      dislikedVideosList,
       saveBtn,
       savedVideosList,
       savedVideosIdList,
     } = this.state
+
+    console.log(likedVideosList)
+    console.log(dislikedVideosList)
 
     return (
       <NxtWatchContext.Provider
@@ -88,14 +119,16 @@ class App extends Component {
           theme,
           activeOption,
           hideBanner,
-          likeAndDislikeBtn,
+          likedVideosList,
+          dislikedVideosList,
           saveBtn,
           savedVideosList,
           savedVideosIdList,
           closeBanner: this.closeBanner,
           changeTheme: this.changeTheme,
           getActiveOption: this.getActiveOption,
-          changeLikeAndDislikeBtn: this.changeLikeAndDislikeBtn,
+          addLikeId: this.addLikeId,
+          addDislikeId: this.addDislikeId,
           changeSaveBtn: this.changeSaveBtn,
           addVideoToSaveList: this.addVideoToSaveList,
         }}
