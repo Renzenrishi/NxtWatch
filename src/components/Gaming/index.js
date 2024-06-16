@@ -14,9 +14,9 @@ import Sidebar from '../Sidebar'
 
 import NxtWatchContext from '../../context/NxtwatchContext'
 
-import {TrendingContainer, Banner, Icon} from '../Trending/styledComponents'
+import {Banner, Icon} from '../Trending/styledComponents'
 import GameVideoItem from '../GameVideoItem'
-import {GamingVideosContainer} from './styledComponent'
+import {GamingVideosContainer, GamingContainer} from './styledComponent'
 
 class Gaming extends Component {
   state = {
@@ -72,7 +72,7 @@ class Gaming extends Component {
 
           return (
             <>
-              <Banner theme={theme}>
+              <Banner theme={theme} data-testid="banner">
                 <Icon theme={theme}>
                   <HiFire />
                 </Icon>
@@ -109,7 +109,7 @@ class Gaming extends Component {
                   ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
                   : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
               }
-              alt="failure"
+              alt="failure view"
             />
             <h1>Oops! Something Went Wrong</h1>
             <p>We are having some trouble to complete your request</p>
@@ -151,9 +151,9 @@ class Gaming extends Component {
               <Header />
               <Content>
                 <Sidebar />
-                <TrendingContainer theme={theme} data-testid="home">
+                <GamingContainer theme={theme} data-testid="gaming">
                   {this.renderApiStatus()}
-                </TrendingContainer>
+                </GamingContainer>
               </Content>
             </>
           )

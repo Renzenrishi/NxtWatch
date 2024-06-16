@@ -78,7 +78,7 @@ class Trending extends Component {
 
           return (
             <>
-              <Banner theme={theme}>
+              <Banner theme={theme} data-testid="banner">
                 <Icon theme={theme}>
                   <HiFire />
                 </Icon>
@@ -115,7 +115,7 @@ class Trending extends Component {
                   ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
                   : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
               }
-              alt="failure"
+              alt="failure view"
             />
             <h1>Oops! Something Went Wrong</h1>
             <p>We are having some trouble to complete your request</p>
@@ -157,7 +157,7 @@ class Trending extends Component {
               <Header />
               <Content>
                 <Sidebar />
-                <TrendingContainer theme={theme} data-testid="home">
+                <TrendingContainer theme={theme} data-testid="trending">
                   {this.renderApiStatus()}
                 </TrendingContainer>
               </Content>

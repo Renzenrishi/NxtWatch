@@ -247,7 +247,7 @@ class VideoItemDetails extends Component {
               <Header />
               <Content>
                 <Sidebar />
-                <VideoContainer theme={theme}>
+                <VideoContainer data-testid="videoItemDetails" theme={theme}>
                   {this.renderApiStatus()}
                 </VideoContainer>
               </Content>

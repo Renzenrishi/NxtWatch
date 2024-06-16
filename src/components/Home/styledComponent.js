@@ -14,7 +14,7 @@ export const HomeContainer = styled.div`
   align-items: center;
   width: 80vw;
   background-color: ${props =>
-    props.theme === 'light' ? '#f9f9f9' : ' #000000'};
+    props.theme === 'light' ? '#f9f9f9' : '#181818'};
 `
 
 export const SearchInputContainer = styled.div`
@@ -26,6 +26,7 @@ export const SearchInputContainer = styled.div`
 
 export const SearchBar = styled.input`
   padding: 5px;
+  height: 30px;
   width: 25vw;
   outline: none;
   border-color: ${props => (props.theme === 'light' ? '#7e858e' : '#606060')};
@@ -34,7 +35,7 @@ export const SearchBar = styled.input`
   color: ${props => (props.theme === 'light' ? '#0f0f0f' : '#cbd5e1')};
 `
 export const SearchBtn = styled.button`
-  height: 31px;
+  height: 30px;
   width: 50px;
   cursor: pointer;
   background-color: ${props => (props.theme === 'light' ? '' : '#606060')};

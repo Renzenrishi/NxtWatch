@@ -1,5 +1,15 @@
 import styled from 'styled-components'
 
+export const GamingContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 80vw;
+  background-color: ${props =>
+    props.theme === 'light' ? '#f9f9f9' : '#0f0f0f'};
+`
+
 export const GameThumbNail = styled.img`
   height: 50vh;
 `

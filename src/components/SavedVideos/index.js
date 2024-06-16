@@ -28,10 +28,10 @@ class SavedVideos extends Component {
               <Header />
               <Content>
                 <Sidebar />
-                <TrendingContainer theme={theme} data-testid="home">
+                <TrendingContainer theme={theme} data-testid="savedVideos">
                   {savedVideosList.length > 0 ? (
                     <>
-                      <Banner theme={theme}>
+                      <Banner theme={theme} data-testid="banner">
                         <Icon theme={theme}>
                           <HiFire />
                         </Icon>
@@ -50,7 +50,7 @@ class SavedVideos extends Component {
                     <FailureContainer theme={theme}>
                       <FailureImg
                         src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-saved-videos-img.png"
-                        alt="no saved"
+                        alt="no saved videos"
                       />
                       <h1>No saved videos found</h1>
                       <p>You can save your videos while watching them</p>

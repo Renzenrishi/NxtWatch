@@ -39,7 +39,7 @@ const Sidebar = () => (
                   onClick={() => getActiveOption('Home')}
                 >
                   <AiFillHome />
-                  <OptionText isActive={activeOption === 'Home'}>
+                  <OptionText theme={theme} isActive={activeOption === 'Home'}>
                     Home
                   </OptionText>
                 </Option>
@@ -54,7 +54,10 @@ const Sidebar = () => (
                   onClick={() => getActiveOption('Trending')}
                 >
                   <HiFire />
-                  <OptionText isActive={activeOption === 'Trending'}>
+                  <OptionText
+                    theme={theme}
+                    isActive={activeOption === 'Trending'}
+                  >
                     Trending
                   </OptionText>
                 </Option>
@@ -69,7 +72,10 @@ const Sidebar = () => (
                   onClick={() => getActiveOption('Gaming')}
                 >
                   <SiYoutubegaming />
-                  <OptionText isActive={activeOption === 'Gaming'}>
+                  <OptionText
+                    theme={theme}
+                    isActive={activeOption === 'Gaming'}
+                  >
                     Gaming
                   </OptionText>
                 </Option>
@@ -84,7 +90,10 @@ const Sidebar = () => (
                   onClick={() => getActiveOption('Saved videos')}
                 >
                   <MdPlaylistAdd />
-                  <OptionText isActive={activeOption === 'Saved videos'}>
+                  <OptionText
+                    theme={theme}
+                    isActive={activeOption === 'Saved videos'}
+                  >
                     Saved videos
                   </OptionText>
                 </Option>

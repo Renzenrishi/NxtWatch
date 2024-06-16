@@ -111,7 +111,7 @@ class Home extends Component {
               />
               <SearchBtn
                 type="button"
-                className=""
+                data-testid="searchButton"
                 onClick={this.getSearchText}
                 theme={theme}
               >
@@ -188,7 +188,7 @@ class Home extends Component {
                   ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
                   : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
               }
-              alt="failure"
+              alt="failure view"
             />
             <h1>Oops! Something Went Wrong</h1>
             <p>We are having some trouble to complete your request</p>
@@ -231,7 +231,7 @@ class Home extends Component {
               <Content>
                 <Sidebar />
                 <HomeContainer theme={theme} data-testid="home">
-                  <div className="banner-container">
+                  <div className="banner-container" data-testid="banner">
                     <div className="BannerContent">
                       <img
                         src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
@@ -246,7 +246,11 @@ class Home extends Component {
                       </button>
                     </div>
                     {/* eslint-disable-next-line */}
-                    <button type="button" className="CloseBtn">
+                    <button
+                      type="button"
+                      className="CloseBtn"
+                      data-testid="close"
+                    >
                       <IoMdClose />
                     </button>
                   </div>

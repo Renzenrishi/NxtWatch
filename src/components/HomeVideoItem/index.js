@@ -31,9 +31,9 @@ const HomeVideoItem = props => (
       return (
         <Link className="linkItem" to={`/videos/${id}`}>
           <VideoItem>
-            <Thumbnail src={thumbnailUrl} alt={channel} />
+            <Thumbnail src={thumbnailUrl} alt="video thumbnail" />
             <VideoItemDescContainer>
-              <ProfileImg src={profileImageUrl} alt="profile" />
+              <ProfileImg src={profileImageUrl} alt="channel logo" />
               <VideoItemDesc theme={theme}>
                 <VideoTitle>{title}</VideoTitle>
                 <ChannelName>{name}</ChannelName>

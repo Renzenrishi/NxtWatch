@@ -31,7 +31,7 @@ const TSVideoItem = props => {
         return (
           <Link className="linkItem" to={`/videos/${id}`}>
             <TSVideoLiItem>
-              <Thumbnail src={thumbnailUrl} alt="thumbnail" />
+              <Thumbnail src={thumbnailUrl} alt="video thumbnail" />
               <TSVideoItemDescContainer>
                 <VideoItemDesc theme={theme}>
                   <VideoTitle>{title}</VideoTitle>

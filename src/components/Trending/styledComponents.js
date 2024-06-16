@@ -7,7 +7,7 @@ export const TrendingContainer = styled.div`
   align-items: center;
   width: 80vw;
   background-color: ${props =>
-    props.theme === 'light' ? '#f9f9f9' : ' #000000'};
+    props.theme === 'light' ? '#f9f9f9' : '#0f0f0f'};
 `
 
 export const Banner = styled.div`

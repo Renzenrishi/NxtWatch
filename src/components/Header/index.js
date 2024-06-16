@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie'
 
-import {withRouter} from 'react-router-dom'
+import {Link, withRouter} from 'react-router-dom'
 
 import {FaMoon} from 'react-icons/fa'
 
@@ -39,17 +39,23 @@ const Header = props => (
 
       return (
         <NavContainer theme={theme}>
-          <HeaderLogo
-            src={
-              theme === 'light'
-                ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
-                : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
-            }
-            alt="nxt watch logo"
-          />
+          <Link to="/">
+            <HeaderLogo
+              src={
+                theme === 'light'
+                  ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
+                  : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
+              }
+              alt="website logo"
+            />
+          </Link>
           <ThemeContainer>
             {/* eslint-disable-next-line */}
-            <ThemeBtn type="button" onClick={() => changeTheme()}>
+            <ThemeBtn
+              type="button"
+              onClick={() => changeTheme()}
+              data-testid="theme"
+            >
               {theme === 'light' ? (
                 <FaMoon />
               ) : (

@@ -47,8 +47,8 @@ export const Option = styled.button`
 export const OptionText = styled.p`
   margin-left: 20px;
   font-size: 15px;
-  font-weight: bold;
-  color: ${props => (props.isActive ? '#000000' : '#7e858e')};
+  font-weight: ${props => (props.isActive ? 'bold' : '')};
+  color: ${props => (props.theme === 'light' ? '#000000' : '#ffffff')};
 `
 
 export const ContactUsContainer = styled.div`
@@ -57,7 +57,7 @@ export const ContactUsContainer = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   padding: 10px;
-  color: ${props => (props.theme === 'light' ? '' : '#ffffff')};
+  color: ${props => (props.theme === 'light' ? '#000000' : '#ffffff')};
 `
 
 export const LogoContainer = styled.div`

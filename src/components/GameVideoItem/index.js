@@ -25,7 +25,7 @@ const GameVideoItem = props => {
         return (
           <Link className="linkItem" style={style} to={`/videos/${id}`}>
             <GameItem>
-              <GameThumbNail src={thumbnailUrl} alt={title} />
+              <GameThumbNail src={thumbnailUrl} alt="video thumbnail" />
               <GameTitle theme={theme}>{title}</GameTitle>
               <GameViews>{viewCount} Watching Worldwide</GameViews>
             </GameItem>
