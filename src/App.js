@@ -25,6 +25,7 @@ class App extends Component {
     activeOption: '',
     likeAndDislikeBtn: '',
     saveBtn: false,
+    savedVideosIdList: [],
     savedVideosList: [],
   }
 
@@ -46,8 +47,11 @@ class App extends Component {
     this.setState({likeAndDislikeBtn: value})
   }
 
-  changeSaveBtn = () => {
-    this.setState(prevState => ({saveBtn: !prevState.saveBtn}))
+  changeSaveBtn = id => {
+    this.setState(prevState => ({
+      saveBtn: !prevState.saveBtn,
+      savedVideosIdList: [...prevState.savedVideosIdList, id],
+    }))
   }
 
   addVideoToSaveList = videoItem => {
@@ -69,6 +73,7 @@ class App extends Component {
       likeAndDislikeBtn,
       saveBtn,
       savedVideosList,
+      savedVideosIdList,
     } = this.state
 
     return (
@@ -79,6 +84,7 @@ class App extends Component {
           likeAndDislikeBtn,
           saveBtn,
           savedVideosList,
+          savedVideosIdList,
           changeTheme: this.changeTheme,
           getActiveOption: this.getActiveOption,
           changeLikeAndDislikeBtn: this.changeLikeAndDislikeBtn,

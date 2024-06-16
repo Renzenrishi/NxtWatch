@@ -22,7 +22,7 @@ export const GameItem = styled.li`
 `
 
 export const GameTitle = styled.p`
-  color : ${props => (props.theme === 'light' ? '' : '#ffffff')}
+  color : ${props => (props.theme === 'light' ? '#181818' : '#ffffff')}
   margin-bottom: 2px;
 `
 

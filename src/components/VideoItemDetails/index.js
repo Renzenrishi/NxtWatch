@@ -96,6 +96,7 @@ class VideoItemDetails extends Component {
     const {videosDetailsData} = this.state
 
     const {
+      id,
       videoUrl,
       publishedAt,
       title,
@@ -118,10 +119,11 @@ class VideoItemDetails extends Component {
             saveBtn,
             changeSaveBtn,
             addVideoToSaveList,
+            savedVideosIdList,
           } = value
 
           const saveVideos = () => {
-            changeSaveBtn()
+            changeSaveBtn(id)
             addVideoToSaveList(videosDetailsData)
           }
 
@@ -153,12 +155,13 @@ class VideoItemDetails extends Component {
                   </DislikeBtn>
                   <SaveBtn
                     type="button"
+                    activeBtn={savedVideosIdList.includes(id)}
                     isActive={saveBtn}
                     onClick={saveVideos}
                   >
                     <MdPlaylistAdd />
                     <span className="BtnText">
-                      {saveBtn ? 'Saved' : 'Save'}
+                      {savedVideosIdList.includes(id) ? 'Saved' : 'Save'}
                     </span>
                   </SaveBtn>
                 </div>

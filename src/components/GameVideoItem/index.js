@@ -1,7 +1,5 @@
 import {Link} from 'react-router-dom'
 
-import '../Home/index.css'
-
 import {
   GameItem,
   GameThumbNail,
@@ -10,6 +8,10 @@ import {
 } from '../Gaming/styledComponent'
 
 import NxtWatchContext from '../../context/NxtwatchContext'
+
+const style = {
+  'text-decoration': 'none',
+}
 
 const GameVideoItem = props => {
   const {details} = props
@@ -21,7 +23,7 @@ const GameVideoItem = props => {
         const {theme} = value
 
         return (
-          <Link className="linkItem" to={`/videos/${id}`}>
+          <Link className="linkItem" style={style} to={`/videos/${id}`}>
             <GameItem>
               <GameThumbNail src={thumbnailUrl} alt={title} />
               <GameTitle theme={theme}>{title}</GameTitle>

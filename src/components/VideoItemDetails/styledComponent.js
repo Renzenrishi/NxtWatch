@@ -64,6 +64,6 @@ export const SaveBtn = styled.button`
   flex-direction: row;
   align-items: center;
   font-size: 18px;
-  color: ${props => (props.isActive ? '#3b82f6' : '#616e7c')};
+  color: ${props => (props.activeBtn ? '#3b82f6' : '#616e7c')};
   cursor: pointer;
 `

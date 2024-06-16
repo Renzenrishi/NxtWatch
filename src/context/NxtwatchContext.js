@@ -8,6 +8,7 @@ const NxtWatchContext = React.createContext({
   likeAndDislikeBtn: '',
   saveBtn: false,
   changeSaveBtn: () => {},
+  savedVideosIdList: [],
   savedVideosList: [],
 })
 

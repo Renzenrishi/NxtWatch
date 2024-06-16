@@ -1,13 +1,12 @@
 import styled from 'styled-components'
 
 export const SidebarContainer = styled.nav`
-  width: 17vw;
+  width: 20vw;
   font-family: 'Roboto';
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 10px;
   height: 90vh;
   background-color: ${props =>
     props.theme === 'light' ? '#ffffff' : '#181818'};
@@ -34,8 +33,14 @@ export const Option = styled.button`
   cursor: pointer;
   border-width: 0px;
   font-size: 20px;
-  width: 15vw;
-  background-color: ${props => (props.isActive ? '#d7dfe9' : '')};
+  width: 19vw;
+  background-color: ${({theme, isActive}) => {
+    if (theme === 'light') {
+      return isActive ? '#d7dfe9' : ''
+    }
+
+    return isActive ? '#383838' : ''
+  }};
   color: ${props => (props.isActive ? '#ff0000' : '')};
 `
 
@@ -51,6 +56,7 @@ export const ContactUsContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
+  padding: 10px;
   color: ${props => (props.theme === 'light' ? '' : '#ffffff')};
 `
 

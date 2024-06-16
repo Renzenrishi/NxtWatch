@@ -12,7 +12,7 @@ export const HomeContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 84vw;
+  width: 80vw;
   background-color: ${props =>
     props.theme === 'light' ? '#f9f9f9' : ' #000000'};
 `
