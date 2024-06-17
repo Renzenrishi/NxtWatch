@@ -26,7 +26,6 @@ class App extends Component {
     hideBanner: false,
     likedVideosList: [],
     dislikedVideosList: [],
-    saveBtn: false,
     savedVideosIdList: [],
     savedVideosList: [],
   }
@@ -79,14 +78,7 @@ class App extends Component {
     this.setState({activeOption: value})
   }
 
-  changeSaveBtn = id => {
-    this.setState(prevState => ({
-      saveBtn: !prevState.saveBtn,
-      savedVideosIdList: [...prevState.savedVideosIdList, id],
-    }))
-  }
-
-  addVideoToSaveList = videoItem => {
+  addVideoToSaveList = (videoItem, id) => {
     const {savedVideosList} = this.state
 
     const findVideoItem = savedVideosList.find(each => each.id === videoItem.id)
@@ -94,6 +86,16 @@ class App extends Component {
     if (findVideoItem === undefined) {
       this.setState(prevState => ({
         savedVideosList: [...prevState.savedVideosList, videoItem],
+        savedVideosIdList: [...prevState.savedVideosIdList, id],
+      }))
+    } else {
+      this.setState(prevState => ({
+        savedVideosList: prevState.savedVideosList.filter(
+          each => each.id !== videoItem.id,
+        ),
+        savedVideosIdList: prevState.savedVideosIdList.filter(
+          each => each !== videoItem.id,
+        ),
       }))
     }
   }
@@ -105,13 +107,12 @@ class App extends Component {
       hideBanner,
       likedVideosList,
       dislikedVideosList,
-      saveBtn,
       savedVideosList,
       savedVideosIdList,
     } = this.state
 
-    console.log(likedVideosList)
-    console.log(dislikedVideosList)
+    console.log(savedVideosList)
+    console.log(savedVideosIdList)
 
     return (
       <NxtWatchContext.Provider
@@ -121,7 +122,6 @@ class App extends Component {
           hideBanner,
           likedVideosList,
           dislikedVideosList,
-          saveBtn,
           savedVideosList,
           savedVideosIdList,
           closeBanner: this.closeBanner,
@@ -129,7 +129,6 @@ class App extends Component {
           getActiveOption: this.getActiveOption,
           addLikeId: this.addLikeId,
           addDislikeId: this.addDislikeId,
-          changeSaveBtn: this.changeSaveBtn,
           addVideoToSaveList: this.addVideoToSaveList,
         }}
       >
