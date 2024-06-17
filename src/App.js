@@ -30,34 +30,36 @@ class App extends Component {
     savedVideosList: [],
   }
 
-  addLikeId = id => {
-    const {dislikedVideosList} = this.state
+  toggleLike = id => {
+    this.setState(prevState => {
+      const liked = prevState.likedVideosList.includes(id)
+      const disliked = prevState.dislikedVideosList.includes(id)
 
-    if (dislikedVideosList.includes(id)) {
-      this.setState(prevState => ({
-        dislikedVideosList: prevState.dislikedVideosList.filter(
-          each => each !== id,
-        ),
-      }))
-    } else {
-      this.setState(prevState => ({
-        likedVideosList: [...prevState.likedVideosList, id],
-      }))
-    }
+      return {
+        likedVideosList: liked
+          ? prevState.likedVideosList.filter(vidId => vidId !== id)
+          : [...prevState.likedVideosList, id],
+        dislikedVideosList: disliked
+          ? prevState.dislikedVideosList.filter(vidId => vidId !== id)
+          : prevState.dislikedVideosList,
+      }
+    })
   }
 
-  addDislikeId = id => {
-    const {likedVideosList} = this.state
+  toggleDislike = id => {
+    this.setState(prevState => {
+      const liked = prevState.likedVideosList.includes(id)
+      const disliked = prevState.dislikedVideosList.includes(id)
 
-    if (likedVideosList.includes(id)) {
-      this.setState(prevState => ({
-        likedVideosList: prevState.likedVideosList.filter(each => each !== id),
-      }))
-    } else {
-      this.setState(prevState => ({
-        dislikedVideosList: [...prevState.dislikedVideosList, id],
-      }))
-    }
+      return {
+        dislikedVideosList: disliked
+          ? prevState.dislikedVideosList.filter(vidId => vidId !== id)
+          : [...prevState.dislikedVideosList, id],
+        likedVideosList: liked
+          ? prevState.likedVideosList.filter(vidId => vidId !== id)
+          : prevState.likedVideosList,
+      }
+    })
   }
 
   closeBanner = () => {
@@ -111,9 +113,6 @@ class App extends Component {
       savedVideosIdList,
     } = this.state
 
-    console.log(savedVideosList)
-    console.log(savedVideosIdList)
-
     return (
       <NxtWatchContext.Provider
         value={{
@@ -127,8 +126,9 @@ class App extends Component {
           closeBanner: this.closeBanner,
           changeTheme: this.changeTheme,
           getActiveOption: this.getActiveOption,
-          addLikeId: this.addLikeId,
-          addDislikeId: this.addDislikeId,
+          toggleLike: this.toggleLike,
+          toggleDislike: this.toggleDislike,
+          addLikeOrDislike: this.addLikeOrDislike,
           addVideoToSaveList: this.addVideoToSaveList,
         }}
       >

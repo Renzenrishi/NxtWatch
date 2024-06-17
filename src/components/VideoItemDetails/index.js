@@ -116,19 +116,11 @@ class VideoItemDetails extends Component {
             theme,
             dislikedVideosList,
             likedVideosList,
-            addLikeId,
-            addDislikeId,
             addVideoToSaveList,
             savedVideosIdList,
+            toggleLike,
+            toggleDislike,
           } = value
-
-          const like = () => {
-            addLikeId(id)
-          }
-
-          const dislike = () => {
-            addDislikeId(id)
-          }
 
           const saveVideos = () => {
             addVideoToSaveList(videosDetailsData, id)
@@ -149,7 +141,7 @@ class VideoItemDetails extends Component {
                   <LikeBtn
                     type="button"
                     activeLike={likedVideosList.includes(id)}
-                    onClick={like}
+                    onClick={() => toggleLike(id)}
                   >
                     <BiLike />
                     <span className="BtnText">Like</span>
@@ -157,7 +149,7 @@ class VideoItemDetails extends Component {
                   <DislikeBtn
                     type="button"
                     activeDislike={dislikedVideosList.includes(id)}
-                    onClick={dislike}
+                    onClick={() => toggleDislike(id)}
                   >
                     <BiDislike />
                     <span className="BtnText">Dislike</span>
